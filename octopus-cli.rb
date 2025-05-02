@@ -5,13 +5,13 @@
 class OctopusCli < Formula
   desc "The New CLI (octopus) for Octopus Deploy, a user-friendly DevOps tool for developers that supports release management, deployment automation, and operations runbooks"
   homepage "https://github.com/OctopusDeploy/cli"
-  version "2.14.0"
+  version "2.16.0"
   license "Apache-2.0"
 
   on_macos do
-    on_intel do
-      url "https://github.com/OctopusDeploy/cli/releases/download/v2.14.0/octopus_2.14.0_macOS_amd64.tar.gz"
-      sha256 "0c25c528017b000bae9317f3e7d8d2d5f2f4bafc39aca0350fde44cb557dbd97"
+    if Hardware::CPU.intel?
+      url "https://github.com/OctopusDeploy/cli/releases/download/v2.16.0/octopus_2.16.0_macOS_amd64.tar.gz"
+      sha256 "863770c9d7f23b242a47969d38918c2b805e5914f3607f4cfe74e0560a95e62f"
 
       def install
         bin.install "octopus"
@@ -21,9 +21,9 @@ class OctopusCli < Formula
         # fish_completion.install "completions/octopus.fish"
       end
     end
-    on_arm do
-      url "https://github.com/OctopusDeploy/cli/releases/download/v2.14.0/octopus_2.14.0_macOS_arm64.tar.gz"
-      sha256 "cacb75d2e6b298d557593f5507548523dd731fe1fe5b6b5515ee466db9fb8836"
+    if Hardware::CPU.arm?
+      url "https://github.com/OctopusDeploy/cli/releases/download/v2.16.0/octopus_2.16.0_macOS_arm64.tar.gz"
+      sha256 "3e880fc492ef75aabd2275e6b22532626873c141462c609316236b1e59ab7c23"
 
       def install
         bin.install "octopus"
@@ -36,32 +36,26 @@ class OctopusCli < Formula
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/OctopusDeploy/cli/releases/download/v2.14.0/octopus_2.14.0_linux_amd64.tar.gz"
-        sha256 "5e6696a35a48f510639abbfe3aedd4a05e1a83cba4fa3ca104a5b9219c018aa4"
-
-        def install
-          bin.install "octopus"
-          # future: enhance the CLI to generate completion scripts, and install them as follows
-          # bash_completion.install "completions/octopus.bash" => "octopus"
-          # zsh_completion.install "completions/octopus.zsh" => "_octopus"
-          # fish_completion.install "completions/octopus.fish"
-        end
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/OctopusDeploy/cli/releases/download/v2.16.0/octopus_2.16.0_linux_amd64.tar.gz"
+      sha256 "a87e1d7fa57cf9c8237f056e5a422dc8ea2fc1614f6ad4d09df946880c3c3d50"
+      def install
+        bin.install "octopus"
+        # future: enhance the CLI to generate completion scripts, and install them as follows
+        # bash_completion.install "completions/octopus.bash" => "octopus"
+        # zsh_completion.install "completions/octopus.zsh" => "_octopus"
+        # fish_completion.install "completions/octopus.fish"
       end
     end
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/OctopusDeploy/cli/releases/download/v2.14.0/octopus_2.14.0_linux_arm64.tar.gz"
-        sha256 "c230181007e67164ed26a794edc184a8e436073d8630edf71f08cf94a6a50e3c"
-
-        def install
-          bin.install "octopus"
-          # future: enhance the CLI to generate completion scripts, and install them as follows
-          # bash_completion.install "completions/octopus.bash" => "octopus"
-          # zsh_completion.install "completions/octopus.zsh" => "_octopus"
-          # fish_completion.install "completions/octopus.fish"
-        end
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://github.com/OctopusDeploy/cli/releases/download/v2.16.0/octopus_2.16.0_linux_arm64.tar.gz"
+      sha256 "a1527d4edd7c9bba885fa9b3b2c60a69ffc2be75f27a601bc1b3238e82ec795e"
+      def install
+        bin.install "octopus"
+        # future: enhance the CLI to generate completion scripts, and install them as follows
+        # bash_completion.install "completions/octopus.bash" => "octopus"
+        # zsh_completion.install "completions/octopus.zsh" => "_octopus"
+        # fish_completion.install "completions/octopus.fish"
       end
     end
   end
