@@ -19,7 +19,7 @@ permissions:
 jobs:
   create-pr-for-update:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.actor == 'team-integrations-fnm-bot' }}
+    if: ${{ github.event_name == 'push' && github.actor == 'team-modern-deployments-bot' }}
 
     env:
       GH_TOKEN: ${{secrets.INTEGRATIONS_FNM_BOT_TOKEN}}
@@ -32,7 +32,7 @@ jobs:
 
   pr-enable-auto-merge:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' && github.actor == 'team-integrations-fnm-bot' }}
+    if: ${{ github.event_name == 'pull_request' && github.actor == 'team-modern-deployments-bot' }}
 
     env:
       GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
