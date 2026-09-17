@@ -5,13 +5,13 @@
 class OctopusCli < Formula
   desc "The New CLI (octopus) for Octopus Deploy, a user-friendly DevOps tool for developers that supports release management, deployment automation, and operations runbooks"
   homepage "https://github.com/OctopusDeploy/cli"
-  version "2.25.1"
+  version "2.26.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/OctopusDeploy/cli/releases/download/v2.25.1/octopus_2.25.1_macOS_amd64.tar.gz"
-      sha256 "30ed9375144220551493f3fad94ecf2b1c31ac9daf5272f635fd9e2ac68e61c0"
+      url "https://github.com/OctopusDeploy/cli/releases/download/v2.26.0/octopus_2.26.0_macOS_amd64.tar.gz"
+      sha256 "f9a50e4d56c2648de1da2c88f6eb2c4552fb4350dfd4b07233e47a7fb1de2633"
 
       define_method(:install) do
         bin.install "octopus"
@@ -22,8 +22,8 @@ class OctopusCli < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/OctopusDeploy/cli/releases/download/v2.25.1/octopus_2.25.1_macOS_arm64.tar.gz"
-      sha256 "61170d3caeff010cdcb7eea53d86c5638461e5f86ff683a9d29255864099e8ea"
+      url "https://github.com/OctopusDeploy/cli/releases/download/v2.26.0/octopus_2.26.0_macOS_arm64.tar.gz"
+      sha256 "a6ca4e088c538b4d651a4caf10342b6713868f7ac1b7caeac4b03ac5ce5563d5"
 
       define_method(:install) do
         bin.install "octopus"
@@ -37,8 +37,8 @@ class OctopusCli < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/OctopusDeploy/cli/releases/download/v2.25.1/octopus_2.25.1_linux_amd64.tar.gz"
-      sha256 "94b90ac6d26b623c5f003abc8c96babd195df225465b6782ac2304b9bd68156e"
+      url "https://github.com/OctopusDeploy/cli/releases/download/v2.26.0/octopus_2.26.0_linux_amd64.tar.gz"
+      sha256 "fb343132332f5fabff894572029aefd34169fa172d3b8d2d592319be61d13ef6"
       define_method(:install) do
         bin.install "octopus"
         # future: enhance the CLI to generate completion scripts, and install them as follows
@@ -48,8 +48,8 @@ class OctopusCli < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/OctopusDeploy/cli/releases/download/v2.25.1/octopus_2.25.1_linux_arm64.tar.gz"
-      sha256 "af99eb99cbf319b79295c4a7437e630f04fe6c473e03d17e5da30f279d6d13ed"
+      url "https://github.com/OctopusDeploy/cli/releases/download/v2.26.0/octopus_2.26.0_linux_arm64.tar.gz"
+      sha256 "dd98c863f10acd4f08c4e358ef92c62ab99b6ab23c6dbf6d1e19fb2c9f167a07"
       define_method(:install) do
         bin.install "octopus"
         # future: enhance the CLI to generate completion scripts, and install them as follows
